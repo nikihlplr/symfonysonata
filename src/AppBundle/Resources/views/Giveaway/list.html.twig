@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+
+<form method="get" action="{{ app.request.get('search') }}">
+    {{ form_rest(form) }}
+    <input type="submit" name="submit-filter" value="filter" />
+</form> 
+
+
+
+{% if giveawaylist|length > 0 %} 
+
+    <table  border ="1" >
+						  <thead>
+							  <tr role="row">
+							  <th cl >Sl No</th>
+							  <th >Project Name</th>
+							  <th >Price</th>
+							  <th >Created Date</th> 
+							  <th >Updated Date</th> 
+							 </tr>
+						  </thead>   
+						  
+					  <tbody role="alert" aria-live="polite" aria-relevant="all">
+					   {% for product in giveawaylist%}
+				      <tr>
+				       <td class=" sorting_1">{{ product.id }}</td>
+				        <td class="center ">{{ product.name }}</td>
+				        <td class="center ">{{ product.price }}</td>
+				        <td class="center ">{{ product.slug | date('d-M-Y') }}</td>
+				        <td class="center ">{{ product.created | date('d-M-Y') }}</td>  
+				      </tr>
+				      {% endfor %}
+					  
+					</tbody></table>
+
+					{% endif %}
+{% endblock body %}
