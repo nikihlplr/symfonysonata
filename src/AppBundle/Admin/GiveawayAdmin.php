@@ -18,11 +18,12 @@ class GiveawayAdmin extends AbstractAdmin
             ->add('name', 'text', array(
                 'label' => 'Name'
             ))
-            ->add('price', 'entity', array( 
+            ->add('price', 'text', array( 
             ))
 
             // if no type is specified, SonataAdminBundle tries to guess it
             ->add('slug')
+            ->add('created')
 
             // ...
        ;
@@ -34,6 +35,7 @@ class GiveawayAdmin extends AbstractAdmin
        $datagridMapper
             ->add('name')
             ->add('price')
+             ->add('created')
        ;
     }
 
@@ -44,6 +46,7 @@ class GiveawayAdmin extends AbstractAdmin
             ->addIdentifier('name')
             ->add('slug')
             ->add('price')
+             ->add('created')
        ;
     }
 
@@ -54,6 +57,7 @@ class GiveawayAdmin extends AbstractAdmin
            ->add('name')
            ->add('slug')
            ->add('price')
+            ->add('created')
        ;
     }
 }
