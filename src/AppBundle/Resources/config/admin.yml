@@ -1,0 +1,11 @@
+services:
+    app.admin.giveaway:
+        class: AppBundle\Admin\GiveawayAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Content", label: "Giveaway" }
+        arguments:
+            - ~
+            - AppBundle\Entity\Giveaway
+            - ~
+        calls:
+            - [ setTranslationDomain, [AppBundle]]
